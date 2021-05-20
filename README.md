@@ -39,3 +39,31 @@ currentAccount := accounts.CurrentAccount{
 
 fmt.Println(currentAccount, holder)
 ```
+
+## Herança
+
+Não temos herança em Go. Temos uma composição. Veja:
+
+```go
+type CurrentAccount struct {
+	Holder                      clients.Holder // field titular
+	AgencyNumber, AccountNumber int
+	balance                     float64
+}
+```
+
+Nós temos em "Holder" a composição do tipo titular
+
+## Encapsulamento
+
+Para encapsularmos os campos em Go de acordo com sua visibilidade (private, public) usamos a seguinte técnica:
+
+- **Primeira Letra maiuscola:** public (+)
+- **Primeira Letra minuscola:** private (-)
+
+Exemplo:
+
+```go
+AgencyNumber, AccountNumber int // public
+balance                     float64 // private
+```
